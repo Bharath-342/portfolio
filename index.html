@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Bharath | Portfolio</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    nav {
+      background: #1e293b;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      color: #9fc1e3;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #7f5af0;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+    header h1 {
+      font-size: 50px;
+      background: linear-gradient(90deg, #7f5af0, #00d9ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: fadeInText 2s ease forwards 0.5s;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    header p {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #94a3b8;
+    }
+    .btn {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 24px;
+      background: #7f5af0;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #5a3fc0;
+    }
+
+    /* FadeInUp Animation */
+    .section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: #0f172a;
+      padding: 0;
+      margin: 0;
+    }
+    .about-section h2 {
+      font-size: 36px;
+      margin: 0;
+      padding: 20px 0 10px;
+      background: linear-gradient(90deg, #00d9ff, #7f5af0);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-align: center;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+    .about img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 4px solid #7f5af0;
+      transition: transform 0.5s ease;
+    }
+    .about img:hover {
+      transform: scale(1.05);
+    }
+    .about-text {
+      max-width: 500px;
+      font-size: 18px;
+      color: #cbd5e1;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: #1e293b;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .skill-card {
+      background: #273549;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .skill-card:hover {
+      transform: translateY(-10px);
+      background: #334155;
+    }
+    .skill-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: #7f5af0;
+    }
+    .skill-card p {
+      font-size: 16px;
+      color: #94a3b8;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background-color: #0f1c2e;
+    }
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .project-card {
+      background: #273549;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      background: #334155;
+    }
+    .project-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: #7f5af0;
+    }
+    .project-card p {
+      font-size: 16px;
+      color: #94a3b8;
+    }
+
+    /* Certifications Section */
+    .certifications-section {
+      background-color: #14213d;
+    }
+    .certifications {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .certification-card {
+      background: #273549;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .certification-card:hover {
+      transform: translateY(-10px);
+      background: #334155;
+    }
+    .certification-card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: #7f5af0;
+    }
+    .certification-card p {
+      font-size: 16px;
+      color: #94a3b8;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background-color: #1f2937;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .contact a {
+      display: inline-block;
+      background: #00d9ff;
+      color: #0f172a;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .contact a:hover {
+      background: #009ec3;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#about">About Me</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header id="hero">
+  <h1>Hi, I'm Sai Bharath</h1>
+  <p>Full Stack Developer | Data Science Enthusiast</p>
+  <a href="SaiBharath%20RESUME-2.pdf" download class="btn">Download Resume</a>
+
+  <!-- About Me Section Moved Here -->
+  <div class="about">
+    <img src="bharath.jpg" alt="Sai Bharath Photo">
+    <div class="about-text">
+      <p>
+        I'm currently pursuing a B.Tech in CSE (Data Science) at MVGR College of Engineering. 
+        Passionate about full-stack development, data science, and building real-world projects.
+        I love exploring new technologies and constantly improving my skills!
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- Skills Section Moved to the Next Page -->
+<section class="section skills-section" id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill-card">
+      <h3>Front-End Development</h3>
+      <p>HTML, CSS, JavaScript, Responsive Design</p>
+    </div>
+    <div class="skill-card">
+      <h3>Programming Languages</h3>
+      <p>Python, C, C++, SQL</p>
+    </div>
+    <div class="skill-card">
+      <h3>Tools & Platforms</h3>
+      <p>GitHub, Linux, VS Code</p>
+    </div>
+  </div>
+</section>
+
+<section class="section projects-section" id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>GOTIT Platform</h3>
+      <p>A web platform enabling students to securely report and recover lost items with OTP verification and admin tools.</p>
+    </div>
+    <div class="project-card">
+      <h3>Student Database Management System</h3>
+      <p>Web app to manage student records securely with admin-controlled access for data management and retrieval.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section certifications-section" id="certifications">
+  <h2>Certifications</h2>
+  <div class="certifications">
+    <div class="certification-card">
+      <h3>Cisco - IT Essentials</h3>
+      <p>Foundations in IT infrastructure and troubleshooting techniques.</p>
+    </div>
+    <div class="certification-card">
+      <h3>Brainovision - Data Science with Python</h3>
+      <p>Hands-on projects and applications of Data Science and Machine Learning concepts.</p>
+    </div>
+    <div class="certification-card">
+      <h3>Edx - Macroeconomics</h3>
+      <p>Understanding of global economic principles and financial systems.</p>
+    </div>
+    <div class="certification-card">
+      <h3>Cisco - Computer Networks</h3>
+      <p>Core concepts in networking, protocols, and internet communication.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <a href="mailto:saibharathmandalapu27@gmail.com">📧 Mail Me</a>
+  </div>
+</section>
+
+<!-- JavaScript to trigger animations when sections are in view -->
+<script>
+  // IntersectionObserver to trigger animation when section is in view
+  const sections = document.querySelectorAll('.section');
+
+  const observerOptions = {
+    threshold: 0.5 // The section will be considered in view when 50% is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
